@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Tracker - WellTrack</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-heartbeat"></i> WellTrack</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tracker.html" class="active">Daily Tracker</a></li>
+                    <li><a href="tips.html">Health Tips</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="tracker-section">
+            <div class="container">
+                <h2>Daily Wellness Tracker</h2>
+                <p>Track your daily wellness metrics and see your progress in real-time.</p>
+                
+                <div class="tracker-grid">
+                    <div class="tracker-card">
+                        <h3><i class="fas fa-moon"></i> Sleep Hours</h3>
+                        <div class="slider-container">
+                            <input type="range" min="0" max="12" value="7" step="0.5" class="slider" id="sleepSlider">
+                            <div class="slider-value"><span id="sleepValue">7</span> hours</div>
+                        </div>
+                        <div class="feedback" id="sleepFeedback">Good! You're getting enough sleep.</div>
+                    </div>
+                    
+                    <div class="tracker-card">
+                        <h3><i class="fas fa-tint"></i> Water Intake</h3>
+                        <div class="counter-container">
+                            <button class="counter-btn" id="decreaseWater">-</button>
+                            <div class="counter-value"><span id="waterValue">4</span> glasses</div>
+                            <button class="counter-btn" id="increaseWater">+</button>
+                        </div>
+                        <div class="feedback" id="waterFeedback">Try to drink more water throughout the day.</div>
+                    </div>
+                    
+                    <div class="tracker-card">
+                        <h3><i class="fas fa-running"></i> Exercise</h3>
+                        <div class="dropdown-container">
+                            <select id="exerciseDropdown">
+                                <option value="none">None</option>
+                                <option value="light">Light</option>
+                                <option value="moderate" selected>Moderate</option>
+                                <option value="intense">Intense</option>
+                            </select>
+                        </div>
+                        <div class="feedback" id="exerciseFeedback">Great job staying active today!</div>
+                    </div>
+                    
+                    <div class="tracker-card">
+                        <h3><i class="fas fa-utensils"></i> Meals</h3>
+                        <div class="counter-container">
+                            <button class="counter-btn" id="decreaseMeals">-</button>
+                            <div class="counter-value"><span id="mealsValue">3</span> meals</div>
+                            <button class="counter-btn" id="increaseMeals">+</button>
+                        </div>
+                        <div class="feedback" id="mealsFeedback">You're maintaining a good eating schedule.</div>
+                    </div>
+                    
+                    <div class="tracker-card">
+                        <h3><i class="fas fa-smile"></i> Mood</h3>
+                        <div class="mood-container">
+                            <div class="mood-emoji" data-mood="1">😞</div>
+                            <div class="mood-emoji" data-mood="2">😐</div>
+                            <div class="mood-emoji mood-selected" data-mood="3">🙂</div>
+                            <div class="mood-emoji" data-mood="4">😃</div>
+                        </div>
+                        <div class="feedback" id="moodFeedback">You're feeling good today!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="summary-section">
+            <div class="container">
+                <h2>Daily Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-chart">
+                        <canvas id="wellnessChart"></canvas>
+                    </div>
+                    <div class="summary-stats">
+                        <h3>Today's Wellness Score</h3>
+                        <div class="wellness-score">
+                            <span id="wellnessScoreValue">75</span>
+                            <span class="wellness-score-label">/100</span>
+                        </div>
+                        <div class="wellness-message" id="wellnessMessage">
+                            You're doing well! Keep up the good habits.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 WellTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
